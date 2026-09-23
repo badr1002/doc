@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunsilk Curl Experience</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --gold:#C9993A;
+  --gold-light:#E8C060;
+  --gold-soft:#FDF5E6;
+  --dark:#0D0D0D;
+  --dark2:#161616;
+  --dark3:#1E1E1E;
+  --white:#FFFFFF;
+  --gray:#A0A0A0;
+  --gray2:#6B6B6B;
+  --border:rgba(255,255,255,0.08);
+  --blue:#3B82F6;
+  --green:#22C55E;
+  --purple:#A855F7;
+  --pink:#EC4899;
+  --orange:#F97316;
+}
+
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--dark);
+  color:var(--white);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 48px;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:15px;letter-spacing:-0.3px;
+}
+.nav-gem{
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.nav-pill{
+  background:rgba(201,153,58,0.15);
+  border:1px solid rgba(201,153,58,0.3);
+  color:var(--gold-light);
+  font-size:12px;font-weight:600;
+  padding:5px 14px;border-radius:20px;
+}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 80px 80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(201,153,58,0.12) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 50% at 10% 80%,rgba(59,130,246,0.08) 0%,transparent 60%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;max-width:1200px;margin:0 auto;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,153,58,0.12);border:1px solid rgba(201,153,58,0.25);
+  color:var(--gold-light);font-size:12px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:7px 16px;border-radius:20px;margin-bottom:28px;
+}
+.hero-title{
+  font-size:64px;font-weight:900;
+  line-height:1.0;letter-spacing:-2px;
+  margin-bottom:24px;
+}
+.hero-title .accent{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light),#FFD700);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-desc{
+  font-size:18px;color:var(--gray);line-height:1.7;
+  max-width:500px;margin-bottom:48px;
+}
+.hero-metrics{
+  display:flex;gap:40px;
+}
+.metric-val{
+  font-size:36px;font-weight:900;letter-spacing:-1px;
+  background:linear-gradient(135deg,var(--white),var(--gray));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.metric-label{
+  font-size:12px;color:var(--gray2);margin-top:2px;font-weight:500;
+}
+
+/* PHONE MOCKUP */
+.phone-wrap{
+  display:flex;justify-content:center;align-items:center;
+  position:relative;
+}
+.phone-wrap::before{
+  content:'';
+  position:absolute;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(201,153,58,0.20),transparent 70%);
+  border-radius:50%;
+}
+.phone{
+  width:280px;
+  background:var(--dark2);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:36px;
+  padding:20px;
+  position:relative;
+  box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.05);
+}
+.phone-notch{
+  width:80px;height:6px;
+  background:rgba(255,255,255,0.1);
+  border-radius:3px;margin:0 auto 20px;
+}
+.phone-screen{
+  background:linear-gradient(160deg,#1A1209,#0D0D0D);
+  border-radius:24px;padding:20px;
+  border:1px solid rgba(201,153,58,0.2);
+}
+.phone-brand{
+  text-align:center;margin-bottom:16px;
+}
+.phone-brand-name{
+  font-size:11px;font-weight:800;letter-spacing:2px;
+  color:var(--gold-light);text-transform:uppercase;
+}
+.phone-headline{
+  font-size:18px;font-weight:800;text-align:center;
+  margin-bottom:4px;letter-spacing:-0.5px;
+}
+.phone-sub{font-size:11px;color:var(--gray);text-align:center;margin-bottom:18px;}
+.phone-steps{display:flex;flex-direction:column;gap:8px;}
+.ps{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;padding:10px 12px;
+}
+.ps-icon{
+  width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;flex-shrink:0;
+}
+.ps-title{font-size:12px;font-weight:600;}
+.ps-sub{font-size:10px;color:var(--gray);margin-top:1px;}
+.phone-cta{
+  margin-top:16px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  border-radius:12px;padding:12px;
+  text-align:center;font-size:12px;font-weight:800;
+  color:#1A1A1A;letter-spacing:0.5px;
+}
+
+/* ─── SECTION BASE ─── */
+.section{padding:100px 80px;max-width:1200px;margin:0 auto;}
+.full-section{padding:100px 80px;}
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+}
+.section-title{
+  font-size:48px;font-weight:900;letter-spacing:-1.5px;
+  line-height:1.1;margin-bottom:16px;
+}
+.section-sub{
+  font-size:17px;color:var(--gray);
+  max-width:580px;line-height:1.7;margin-bottom:64px;
+}
+
+/* ─── DIVIDER ─── */
+.divider{
+  height:1px;background:var(--border);
+  max-width:1200px;margin:0 auto;
+}
+
+/* ─── JOURNEY ─── */
+.journey-bg{
+  background:var(--dark2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.journey-inner{max-width:1200px;margin:0 auto;padding:100px 80px;}
+
+.journey-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  margin-top:0;
+}
+.journey-card{
+  background:var(--dark3);
+  padding:40px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:background 0.3s;
+}
+.journey-card:hover{background:#252525;}
+.journey-card:first-child{border-radius:24px 0 0 24px;}
+.journey-card:last-child{border-radius:0 24px 24px 0;}
+.journey-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+}
+.jc1::before{background:linear-gradient(90deg,var(--blue),#60A5FA);}
+.jc2::before{background:linear-gradient(90deg,var(--green),#4ADE80);}
+.jc3::before{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.jc4::before{background:linear-gradient(90deg,var(--purple),#C084FC);}
+.jc5::before{background:linear-gradient(90deg,var(--pink),#F472B6);}
+.jc6::before{background:linear-gradient(90deg,var(--orange),#FB923C);}
+.j-num{
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--gray2);margin-bottom:20px;
+}
+.j-icon{
+  font-size:36px;margin-bottom:16px;display:block;
+}
+.j-title{
+  font-size:20px;font-weight:800;letter-spacing:-0.5px;
+  margin-bottom:10px;
+}
+.j-desc{font-size:13px;color:var(--gray);line-height:1.65;}
+.j-cta{
+  margin-top:20px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;
+  padding:7px 14px;border-radius:8px;
+  letter-spacing:0.3px;
+}
+
+/* ─── FEATURES ─── */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.feat{
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+  transition:border-color 0.3s,transform 0.2s;
+}
+.feat:hover{
+  border-color:rgba(201,153,58,0.3);
+  transform:translateY(-2px);
+}
+.feat-icon{
+  width:52px;height:52px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:20px;
+}
+.feat-title{
+  font-size:17px;font-weight:800;
+  letter-spacing:-0.4px;margin-bottom:10px;
+}
+.feat-desc{
+  font-size:13px;color:var(--gray);line-height:1.65;
+}
+.feat-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:20px;
+  margin-top:14px;
+}
+
+/* ─── PERSONALITY ─── */
+.personality-section{
+  background:linear-gradient(160deg,#0D0D1A,#0D0D0D);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.personality-inner{max-width:1200px;margin:0 auto;padding:100px 80px;}
+.personality-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:0;
+}
+.pc{
+  border-radius:24px;padding:40px 32px;
+  position:relative;overflow:hidden;
+  cursor:default;min-width:0;
+}
+.pc-bold{background:linear-gradient(145deg,#1A0A1E,#2D0F40);border:1px solid rgba(168,85,247,0.3);}
+.pc-free{background:linear-gradient(145deg,#0A1A0F,#0F3020);border:1px solid rgba(34,197,94,0.3);}
+.pc-confident{background:linear-gradient(145deg,#1A1209,#2D1F0A);border:1px solid rgba(201,153,58,0.3);}
+.pc-glow{
+  position:absolute;top:-40px;right:-40px;
+  width:150px;height:150px;border-radius:50%;
+  opacity:0.3;
+}
+.pc-bold .pc-glow{background:radial-gradient(circle,var(--purple),transparent);}
+.pc-free .pc-glow{background:radial-gradient(circle,var(--green),transparent);}
+.pc-confident .pc-glow{background:radial-gradient(circle,var(--gold),transparent);}
+.pc-emoji{font-size:52px;margin-bottom:20px;display:block;}
+.pc-name{
+  font-size:26px;font-weight:900;letter-spacing:-0.8px;
+  margin-bottom:8px;
+}
+.pc-bold .pc-name{color:#C084FC;}
+.pc-free .pc-name{color:#4ADE80;}
+.pc-confident .pc-name{color:var(--gold-light);}
+.pc-tag{font-size:12px;color:var(--gray);margin-bottom:16px;font-weight:500;}
+.pc-desc{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.65;}
+
+/* ─── SETUP ─── */
+.setup-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.setup-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:16px;padding:24px;
+  transition:border-color 0.3s;
+}
+.setup-item:hover{border-color:rgba(201,153,58,0.25);}
+.setup-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.setup-title{
+  font-size:15px;font-weight:700;
+  margin-bottom:6px;letter-spacing:-0.3px;
+}
+.setup-desc{font-size:13px;color:var(--gray);line-height:1.55;}
+.setup-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:3px 8px;border-radius:6px;margin-top:8px;
+  letter-spacing:0.3px;
+}
+.badge-req{background:rgba(239,68,68,0.15);color:#FC8181;}
+.badge-ai{background:rgba(59,130,246,0.15);color:#60A5FA;}
+.badge-rec{background:rgba(34,197,94,0.15);color:#4ADE80;}
+
+/* ─── AI DARK SECTION ─── */
+.ai-section{
+  background:radial-gradient(ellipse 100% 80% at 50% 0%,rgba(59,130,246,0.08),transparent 60%),
+             var(--dark);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.ai-inner{max-width:1200px;margin:0 auto;padding:100px 80px;}
+.ai-header{text-align:center;max-width:700px;margin:0 auto 64px;}
+.ai-header .section-sub{margin:0 auto;text-align:center;}
+.ai-grid{display:grid;grid-template-columns:3fr 2fr;gap:24px;}
+.ai-main{
+  background:rgba(59,130,246,0.06);
+  border:1px solid rgba(59,130,246,0.2);
+  border-radius:24px;padding:40px;
+}
+.ai-main-title{
+  font-size:20px;font-weight:800;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.ai-main-desc{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:28px;}
+.ai-flow{
+  display:flex;flex-direction:column;gap:12px;
+}
+.ai-flow-step{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;padding:14px 16px;
+}
+.ai-flow-num{
+  width:24px;height:24px;border-radius:6px;
+  background:rgba(59,130,246,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#60A5FA;flex-shrink:0;
+}
+.ai-flow-text{font-size:13px;font-weight:500;}
+.ai-side{display:flex;flex-direction:column;gap:16px;}
+.ai-warn{
+  background:rgba(249,115,22,0.08);
+  border:1px solid rgba(249,115,22,0.25);
+  border-radius:20px;padding:28px;
+}
+.ai-warn-title{
+  font-size:15px;font-weight:800;
+  color:#FB923C;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.ai-warn-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+.ai-options{display:flex;flex-direction:column;gap:8px;}
+.ai-opt{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.04);
+  border-radius:10px;padding:10px 12px;
+  font-size:12px;font-weight:600;
+}
+.ai-fix{
+  background:rgba(34,197,94,0.08);
+  border:1px solid rgba(34,197,94,0.2);
+  border-radius:20px;padding:24px;
+}
+.ai-fix-title{
+  font-size:13px;font-weight:800;
+  color:#4ADE80;margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;
+}
+.ai-fix-desc{font-size:12px;color:var(--gray);line-height:1.6;}
+
+/* ─── TIPS ─── */
+.tips-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+}
+.tip{
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:16px;padding:24px;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.tip-icon{
+  font-size:24px;flex-shrink:0;margin-top:2px;
+}
+.tip-text{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;font-weight:500;}
+
+/* ─── TROUBLE ─── */
+.trouble-list{display:flex;flex-direction:column;gap:10px;}
+.trouble{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:24px;align-items:start;
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:16px;padding:22px 28px;
+  transition:border-color 0.3s;
+}
+.trouble:hover{border-color:rgba(255,255,255,0.15);}
+.t-prob{
+  font-size:14px;font-weight:700;
+  display:flex;align-items:center;gap:8px;
+}
+.t-sol{font-size:13px;color:var(--gray);line-height:1.6;}
+
+/* ─── QUICK REF ─── */
+.qr-section{
+  background:linear-gradient(160deg,#0D1A0A,#0D0D0D);
+  border-top:1px solid var(--border);
+}
+.qr-inner{max-width:1200px;margin:0 auto;padding:100px 80px;}
+.flow-track{
+  display:flex;align-items:center;gap:0;
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:0;
+}
+.ft-step{
+  flex:1;padding:20px 16px;
+  text-align:center;
+  border-right:1px solid var(--border);
+  transition:background 0.2s;
+}
+.ft-step:hover{background:rgba(255,255,255,0.04);}
+.ft-step:last-child{border-right:none;}
+.ft-icon{font-size:22px;margin-bottom:6px;display:block;}
+.ft-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.3px;}
+
+.ref-table{
+  width:100%;border-collapse:collapse;
+  margin-top:32px;
+}
+.ref-table th{
+  text-align:left;font-size:11px;font-weight:700;
+  letter-spacing:0.5px;text-transform:uppercase;
+  color:var(--gray2);padding:12px 16px;
+  border-bottom:1px solid var(--border);
+}
+.ref-table td{
+  padding:14px 16px;font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.ref-table tr:last-child td{border-bottom:none;}
+.ref-table tr:hover td{background:rgba(255,255,255,0.02);}
+.ref-btn{
+  display:inline-block;
+  background:rgba(201,153,58,0.15);
+  border:1px solid rgba(201,153,58,0.25);
+  color:var(--gold-light);
+  font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:8px;
+  letter-spacing:0.3px;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--dark2);
+  border-top:1px solid var(--border);
+  padding:40px 80px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-brand{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:14px;
+}
+.footer-gem{
+  width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+}
+.footer-note{font-size:12px;color:var(--gray2);}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-gem">✨</div>
+    Sunsilk Curl Experience
+  </div>
+  <div class="nav-pill">Product Overview · 2026</div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">⚡ Brand Experience App</div>
+      <h1 class="hero-title">
+        The Curl<br>
+        <span class="accent">Experience</span>
+      </h1>
+      <p class="hero-desc">An interactive tablet kiosk that turns a brand booth into a personal styling session. Quiz. Routine. AI photo. Keepsake. Done.</p>
+      <div class="hero-metrics">
+        <div>
+          <div class="metric-val">3</div>
+          <div class="metric-label">Quiz Questions</div>
+        </div>
+        <div>
+          <div class="metric-val">6</div>
+          <div class="metric-label">Journey Steps</div>
+        </div>
+        <div>
+          <div class="metric-val">3</div>
+          <div class="metric-label">Personalities</div>
+        </div>
+        <div>
+          <div class="metric-val">AI</div>
+          <div class="metric-label">Gemini Powered</div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-brand">
+            <div class="phone-brand-name">Sunsilk</div>
+          </div>
+          <div class="phone-headline">Your Curl Journey ✨</div>
+          <div class="phone-sub">Powered by Google Gemini AI</div>
+          <div class="phone-steps">
+            <div class="ps"><div class="ps-icon" style="background:rgba(59,130,246,0.2)">🧬</div><div><div class="ps-title">Curl Check Quiz</div><div class="ps-sub">3 quick questions</div></div></div>
+            <div class="ps"><div class="ps-icon" style="background:rgba(34,197,94,0.2)">🧴</div><div><div class="ps-title">Your Routine</div><div class="ps-sub">Personalized 3-step plan</div></div></div>
+            <div class="ps"><div class="ps-icon" style="background:rgba(168,85,247,0.2)">📸</div><div><div class="ps-title">Curl Booth</div><div class="ps-sub">AI-styled photo</div></div></div>
+            <div class="ps"><div class="ps-icon" style="background:rgba(201,153,58,0.2)">🖼️</div><div><div class="ps-title">Polaroid Keepsake</div><div class="ps-sub">QR share to phone</div></div></div>
+          </div>
+          <div class="phone-cta">START MY CURL CHECK →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JOURNEY ═══ -->
+<div class="journey-bg">
+  <div class="journey-inner">
+    <div class="section-label">The Guest Journey</div>
+    <h2 class="section-title">6 steps. 3 minutes.<br>One unforgettable moment.</h2>
+    <p class="section-sub">Every step is guided on screen. Guests need zero instructions from staff.</p>
+    <div class="journey-row">
+      <div class="journey-card jc1">
+        <div class="j-num">Step 01</div>
+        <span class="j-icon">🚀</span>
+        <div class="j-title">Launch</div>
+        <div class="j-desc">The app opens to a branded splash screen. An animated progress bar plays, then the welcome screen appears — ready for the first guest.</div>
+        <div class="j-cta" style="background:rgba(59,130,246,0.15);color:#60A5FA;">Tap to Start</div>
+      </div>
+      <div class="journey-card jc2">
+        <div class="j-num">Step 02</div>
+        <span class="j-icon">🧬</span>
+        <div class="j-title">Curl Check Quiz</div>
+        <div class="j-desc">Three fast questions: What's my curl challenge? What's my goal? What's my environment? Each answer steers the routine recommendation.</div>
+        <div class="j-cta" style="background:rgba(34,197,94,0.15);color:#4ADE80;">3 Questions</div>
+      </div>
+      <div class="journey-card jc3">
+        <div class="j-num">Step 03</div>
+        <span class="j-icon">🧴</span>
+        <div class="j-title">Curl Mood + Routine</div>
+        <div class="j-desc">The guest's personal Curl Mood is revealed. A branded 3-step routine (Cleanse → Nourish → Define) appears with Sunsilk product cards.</div>
+        <div class="j-cta" style="background:rgba(201,153,58,0.15);color:#E8C060;">Personalized</div>
+      </div>
+      <div class="journey-card jc4">
+        <div class="j-num">Step 04</div>
+        <span class="j-icon">⚡</span>
+        <div class="j-title">Choose Curl Energy</div>
+        <div class="j-desc">Before the booth, guests pick their vibe: BOLD, FREE, or CONFIDENT. This choice themes their entire Polaroid — color, feel, and personality.</div>
+        <div class="j-cta" style="background:rgba(168,85,247,0.15);color:#C084FC;">3 Options</div>
+      </div>
+      <div class="journey-card jc5">
+        <div class="j-num">Step 05</div>
+        <span class="j-icon">📸</span>
+        <div class="j-title">Curl Booth + AI</div>
+        <div class="j-desc">Live camera preview, 3-2-1 countdown shutter. Then Google Gemini transforms the photo to match their quiz mood and energy. Magic happens in seconds.</div>
+        <div class="j-cta" style="background:rgba(236,72,153,0.15);color:#F472B6;">AI-Powered</div>
+      </div>
+      <div class="journey-card jc6">
+        <div class="j-num">Step 06</div>
+        <span class="j-icon">🖼️</span>
+        <div class="j-title">Polaroid + QR Share</div>
+        <div class="j-desc">A branded Sunsilk Polaroid is displayed. The guest scans a QR code to save their photo. Staff taps DONE — the kiosk resets for the next guest.</div>
+        <div class="j-cta" style="background:rgba(249,115,22,0.15);color:#FB923C;">Keep Forever</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FEATURES ═══ -->
+<div class="section">
+  <div class="section-label">What's Inside</div>
+  <h2 class="section-title">Every feature, explained simply</h2>
+  <p class="section-sub">Six capabilities working together to create one seamless guest moment.</p>
+  <div class="features-grid">
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(59,130,246,0.15)">🧩</div>
+      <div class="feat-title">Smart Curl Quiz</div>
+      <div class="feat-desc">Three targeted questions map each guest to a data-driven Curl Mood. No account, no sign-in, no friction. Answer and go.</div>
+      <span class="feat-tag" style="background:rgba(59,130,246,0.12);color:#60A5FA;">No login needed</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(34,197,94,0.15)">🧴</div>
+      <div class="feat-title">Personalized Routine</div>
+      <div class="feat-desc">Results instantly show a 3-step Cleanse → Nourish → Define routine. Product cards are designed for staff to use as conversation starters.</div>
+      <span class="feat-tag" style="background:rgba(34,197,94,0.12);color:#4ADE80;">Sales enablement</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(168,85,247,0.15)">📷</div>
+      <div class="feat-title">Camera Booth</div>
+      <div class="feat-desc">Live preview, countdown shutter, flip camera. Guests can retake before continuing. No photos are stored beyond the active session.</div>
+      <span class="feat-tag" style="background:rgba(168,85,247,0.12);color:#C084FC;">Privacy-first</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(201,153,58,0.15)">✨</div>
+      <div class="feat-title">AI Hair Transformation</div>
+      <div class="feat-desc">Google Gemini styles the photo to match the guest's quiz mood and curl energy. If AI is unavailable, original photo is used — honestly labeled.</div>
+      <span class="feat-tag" style="background:rgba(201,153,58,0.12);color:#E8C060;">Google Gemini</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(236,72,153,0.15)">🖼️</div>
+      <div class="feat-title">Branded Polaroid</div>
+      <div class="feat-desc">A Sunsilk-branded Polaroid frame with the styled photo, guest's energy label (Bold / Free / Confident), and a "Curl Booth" caption. Composed locally on device.</div>
+      <span class="feat-tag" style="background:rgba(236,72,153,0.12);color:#F472B6;">Fully branded</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(249,115,22,0.15)">📱</div>
+      <div class="feat-title">QR Save & Share</div>
+      <div class="feat-desc">Guests scan a QR code to save their keepsake. Staff tap DONE to instantly reset. The next guest starts a fresh session with zero delay.</div>
+      <span class="feat-tag" style="background:rgba(249,115,22,0.12);color:#FB923C;">Instant reset</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PERSONALITIES ═══ -->
+<div class="personality-section">
+  <div class="personality-inner">
+    <div class="section-label">Curl Energy Personalities</div>
+    <h2 class="section-title">Three vibes.<br>Every guest finds their match.</h2>
+    <p class="section-sub">The guest's chosen energy themes the entire Polaroid — accent color, styling, and feel. It's personal.</p>
+    <div class="personality-cards">
+      <div class="pc pc-bold">
+        <div class="pc-glow"></div>
+        <span class="pc-emoji">💜</span>
+        <div class="pc-name">BOLD</div>
+        <div class="pc-tag">Curl Energy #1</div>
+        <div class="pc-desc">Loud, proud, beautifully untamed. For guests who own every room they walk into and want curls that do the same.</div>
+      </div>
+      <div class="pc pc-free">
+        <div class="pc-glow"></div>
+        <span class="pc-emoji">💚</span>
+        <div class="pc-name">FREE</div>
+        <div class="pc-tag">Curl Energy #2</div>
+        <div class="pc-desc">Easy-going, bouncy, airy ringlets. For guests who want effortless movement and natural-looking curl definition.</div>
+      </div>
+      <div class="pc pc-confident">
+        <div class="pc-glow"></div>
+        <span class="pc-emoji">💛</span>
+        <div class="pc-name">CONFIDENT</div>
+        <div class="pc-tag">Curl Energy #3</div>
+        <div class="pc-desc">Symmetric, defined, frizz-free clusters. For guests who want polished, put-together curls with maximum control.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SETUP ═══ -->
+<div class="section">
+  <div class="section-label">What You Need</div>
+  <h2 class="section-title">Setup checklist</h2>
+  <p class="section-sub">Everything required before going live at the event. Most items take under a minute to verify.</p>
+  <div class="setup-grid">
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(59,130,246,0.15)">📱</div>
+      <div>
+        <div class="setup-title">iPad or Tablet</div>
+        <div class="setup-desc">Any modern iPad or Android tablet. Landscape orientation gives the intended full-width layout.</div>
+        <span class="setup-badge badge-req">Required</span>
+      </div>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(168,85,247,0.15)">📷</div>
+      <div>
+        <div class="setup-title">Camera Permission</div>
+        <div class="setup-desc">Allow camera access on first launch. Grant it under Settings → Privacy → Camera if prompted.</div>
+        <span class="setup-badge badge-req">Required</span>
+      </div>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(34,197,94,0.15)">🌐</div>
+      <div>
+        <div class="setup-title">Internet Connection</div>
+        <div class="setup-desc">Stable Wi-Fi or mobile data needed only for the AI styling step. The quiz and routine work offline.</div>
+        <span class="setup-badge badge-ai">For AI only</span>
+      </div>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(201,153,58,0.15)">🔑</div>
+      <div>
+        <div class="setup-title">Gemini API Key</div>
+        <div class="setup-desc">A valid Google Gemini API key configured in the app's .env file. Must have image-generation access enabled.</div>
+        <span class="setup-badge badge-ai">For AI only</span>
+      </div>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(249,115,22,0.15)">💳</div>
+      <div>
+        <div class="setup-title">Google AI Paid Plan</div>
+        <div class="setup-desc">Google One AI Premium or equivalent. Free-tier quota runs out quickly at events — this prevents HTTP 429 errors.</div>
+        <span class="setup-badge badge-ai">For AI only</span>
+      </div>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon" style="background:rgba(255,255,255,0.07)">🔇</div>
+      <div>
+        <div class="setup-title">Silent Mode + No Auto-Lock</div>
+        <div class="setup-desc">Silence all notifications and disable screen auto-lock so the kiosk stays live throughout the event without interruptions.</div>
+        <span class="setup-badge badge-rec">Recommended</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AI ENGINE ═══ -->
+<div class="ai-section">
+  <div class="ai-inner">
+    <div class="ai-header">
+      <div class="section-label" style="text-align:center">The AI Engine</div>
+      <h2 class="section-title">Powered by Google Gemini</h2>
+      <p class="section-sub">The AI transformation is the highlight — and the experience is built to keep going even when AI isn't available.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-main">
+        <div class="ai-main-title">🤖 How the AI works</div>
+        <div class="ai-main-desc">When a guest completes the booth, their photo is sent to Google Gemini along with the context from their quiz answers and their chosen Curl Energy. Gemini returns a beautifully styled version of their image. The final Polaroid is then assembled on the device with full Sunsilk branding — no data leaves the kiosk.</div>
+        <div class="ai-flow">
+          <div class="ai-flow-step"><div class="ai-flow-num">1</div><div class="ai-flow-text">Guest completes quiz + booth photo</div></div>
+          <div class="ai-flow-step"><div class="ai-flow-num">2</div><div class="ai-flow-text">Photo + mood context sent to Gemini API</div></div>
+          <div class="ai-flow-step"><div class="ai-flow-num">3</div><div class="ai-flow-text">Gemini returns AI-styled curl image</div></div>
+          <div class="ai-flow-step"><div class="ai-flow-num">4</div><div class="ai-flow-text">Polaroid assembled locally with branding</div></div>
+          <div class="ai-flow-step"><div class="ai-flow-num">5</div><div class="ai-flow-text">Guest scans QR to save their keepsake</div></div>
+        </div>
+      </div>
+      <div class="ai-side">
+        <div class="ai-warn">
+          <div class="ai-warn-title">⚠️ If AI is unavailable</div>
+          <div class="ai-warn-desc">The app never crashes. It gives guests 3 clear options to keep the session moving:</div>
+          <div class="ai-options">
+            <div class="ai-opt">🔄 Try again</div>
+            <div class="ai-opt">📷 Use original photo</div>
+            <div class="ai-opt">↩️ Retake photo</div>
+          </div>
+        </div>
+        <div class="ai-fix">
+          <div class="ai-fix-title">✅ Fix for organizers</div>
+          <div class="ai-fix-desc">Enable a Google One AI Premium subscription, confirm the Gemini API project has billing active, and verify the API key in the app's .env file has image-generation access.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TIPS ═══ -->
+<div class="section">
+  <div class="section-label">Best Practices</div>
+  <h2 class="section-title">Tips for a great demo day</h2>
+  <p class="section-sub">Small setup decisions that make the experience feel polished and professional.</p>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-icon">💡</div><div class="tip-text">Use good, even lighting on the guest's face and hair — this directly improves the AI transformation quality.</div></div>
+    <div class="tip"><div class="tip-icon">👤</div><div class="tip-text">Frame head & shoulders in the camera view. Make sure curls are clearly visible for the best styling result.</div></div>
+    <div class="tip"><div class="tip-icon">📱</div><div class="tip-text">Always use landscape orientation on the iPad. This is how the app's layout is designed to be seen.</div></div>
+    <div class="tip"><div class="tip-icon">🔇</div><div class="tip-text">Silence notifications and disable screen auto-lock before the event starts to prevent interruptions.</div></div>
+    <div class="tip"><div class="tip-icon">🔁</div><div class="tip-text">Always tap DONE after each guest. This clears the session so the next guest starts completely fresh.</div></div>
+    <div class="tip"><div class="tip-icon">🌐</div><div class="tip-text">Test your internet connection before the event. The AI step needs a stable connection to run smoothly.</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ TROUBLESHOOT ═══ -->
+<div class="section">
+  <div class="section-label">Troubleshooting</div>
+  <h2 class="section-title">If something goes wrong</h2>
+  <p class="section-sub">Quick fixes for every common issue. Keep this page open during the event.</p>
+  <div class="trouble-list">
+    <div class="trouble"><div class="t-prob">⏳ Splash screen never ends</div><div class="t-sol">Force-quit the app and reopen it. Check that the device has enough available storage.</div></div>
+    <div class="trouble"><div class="t-prob">🚫 Camera is blocked</div><div class="t-sol">Go to Settings → Privacy → Camera and allow access for the app. Then reopen the booth.</div></div>
+    <div class="trouble"><div class="t-prob">✨ AI error or stuck on processing</div><div class="t-sol">Tap <strong>Use Original Photo</strong> to keep the session moving. Check Gemini billing and API key status after the event.</div></div>
+    <div class="trouble"><div class="t-prob">📲 QR code won't scan</div><div class="t-sol">Wait for the share screen to fully load. Try saving from a second device if the primary is slow.</div></div>
+    <div class="trouble"><div class="t-prob">🧴 Guest received the wrong routine</div><div class="t-sol">Restart from the welcome screen and ensure all 3 quiz questions are answered before proceeding.</div></div>
+  </div>
+</div>
+
+<!-- ═══ QUICK REF ═══ -->
+<div class="qr-section">
+  <div class="qr-inner">
+    <div class="section-label">Quick Reference</div>
+    <h2 class="section-title">The full journey at a glance</h2>
+    <p class="section-sub">Hand this to booth staff. Everything they need to run the experience, in one view.</p>
+    <div class="flow-track">
+      <div class="ft-step"><span class="ft-icon">🚀</span><div class="ft-label">Launch</div></div>
+      <div class="ft-step"><span class="ft-icon">🧬</span><div class="ft-label">Quiz</div></div>
+      <div class="ft-step"><span class="ft-icon">🧴</span><div class="ft-label">Routine</div></div>
+      <div class="ft-step"><span class="ft-icon">⚡</span><div class="ft-label">Energy</div></div>
+      <div class="ft-step"><span class="ft-icon">📸</span><div class="ft-label">Camera</div></div>
+      <div class="ft-step"><span class="ft-icon">✨</span><div class="ft-label">AI Magic</div></div>
+      <div class="ft-step"><span class="ft-icon">🖼️</span><div class="ft-label">Polaroid</div></div>
+      <div class="ft-step"><span class="ft-icon">📱</span><div class="ft-label">QR Share</div></div>
+      <div class="ft-step"><span class="ft-icon">✅</span><div class="ft-label">Done</div></div>
+    </div>
+    <table class="ref-table">
+      <thead><tr><th>Stage</th><th>Button to Tap</th></tr></thead>
+      <tbody>
+        <tr><td>Start the experience</td><td><span class="ref-btn">START MY CURL CHECK</span></td></tr>
+        <tr><td>After seeing the routine</td><td><span class="ref-btn">CREATE YOUR CURL STORY</span></td></tr>
+        <tr><td>Bridge to booth</td><td><span class="ref-btn">TRY YOUR CURL ROUTINE NOW</span></td></tr>
+        <tr><td>Enter the booth</td><td><span class="ref-btn">GET STARTED →</span></td></tr>
+        <tr><td>Choose Curl Energy</td><td><span class="ref-btn">SELECT</span></td></tr>
+        <tr><td>After photo is taken</td><td><span class="ref-btn">ADD SUNSILK MAGIC →</span></td></tr>
+        <tr><td>Approve the Polaroid</td><td><span class="ref-btn">SELECT THIS LOOK</span></td></tr>
+        <tr><td>Reset for next guest</td><td><span class="ref-btn">DONE</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-gem">✨</div>
+    Sunsilk Curl Experience
+  </div>
+  <div class="footer-note">Smart Curl Booth · For demo and event use · AI styling requires an active Google Gemini subscription</div>
+</footer>
+
+</body>
+</html>
